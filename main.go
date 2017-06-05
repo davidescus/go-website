@@ -21,5 +21,6 @@ func main() {
 	custom.lastname = "Custom lastname"
 
 	custom1.firstname = "This is the second struct of custom"
+	custom.firstnam = " w"
 
 }
