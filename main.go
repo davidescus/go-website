@@ -1,26 +1,19 @@
 package main
 
-import "fmt"
-
-type custom struct {
-	firstname
-	lastname
-}
-
-type custom1 struct {
-	firstname
-	lastname
-}
+import (
+	"net/http"
+)
 
 func main() {
+	http.HandleFunc("/", serveHome)
+	http.HandleFunc("/contact", serveContact)
+	http.ListenAndServe(":8888", nil)
+}
 
-	fmt.Println("This is a simple text")
-	// This is a modification from git hub
+func serveHome(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte("Hello World"))
+}
 
-	custom.firstname = "Firstname String"
-	custom.lastname = "Custom lastname"
-
-	custom1.firstname = "This is the second struct of custom"
-	custom.firstnam = " w"
-
+func serveContact(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte("Hello to contact page"))
 }
