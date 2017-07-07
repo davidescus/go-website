@@ -1,1 +1,1 @@
-alert("We also use javascript in this project")
+alert("Some dummy javascript alert")
