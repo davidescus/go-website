@@ -43,6 +43,8 @@ func serveWeb() {
 
 	// Serve resources
 	http.HandleFunc("/css/", serveResource)
+	http.HandleFunc("/js/", serveResource)
+	http.HandleFunc("/img/", serveResource)
 
 	http.Handle("/", router)
 
@@ -81,7 +83,6 @@ func serveContent(w http.ResponseWriter, r *http.Request) {
 }
 
 //Parse all html files from /template dir
-// And this is another comment for this function
 func parseTemplateFiles(dir string) *template.Template {
 	templ := template.New("").Funcs(
 		template.FuncMap{
@@ -124,7 +125,7 @@ func serveResource(w http.ResponseWriter, req *http.Request) {
 	} else if strings.HasSuffix(path, ".jpg") {
 		contentType = "image/jpg; charser=utf-8"
 	} else if strings.HasSuffix(path, ".js") {
-		contentType = "aplication/javascript; charser=utf-8"
+		contentType = "text/javascript; charser=utf-8"
 	} else {
 		contentType = "text/plain; charser=utf-8"
 	}
