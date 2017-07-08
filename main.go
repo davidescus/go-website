@@ -114,8 +114,6 @@ func serveResource(w http.ResponseWriter, req *http.Request) {
 
 	path := themePath + strings.Trim(req.URL.Path, "/")
 
-	//log.Println(path)
-
 	var contentType string
 
 	if strings.HasSuffix(path, ".css") {
